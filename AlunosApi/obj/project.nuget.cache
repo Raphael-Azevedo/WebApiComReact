@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ZxzgPmiNcqWCSmhMhzasqqPW3sJ2Y+mgDScnbOQFajv1IyOlbdTQ2GI9i+8qgOVC8HZaWmDC28G4dEETFuowGQ==",
+  "dgSpecHash": "nev7Tcyc+uoNglIVtZmxMI/eEqw2Vl00YB+1EPBVxUYvxkiHQVGiwSQcebkbEFBwoXGh4CTHGRIx+IhxgnKC4Q==",
   "success": true,
-  "projectFilePath": "D:\\REPOSITÓRIO\\ApiReact\\AlunosApi\\AlunosApi.csproj",
+  "projectFilePath": "D:\\REPOSITÓRIO\\WebApiComReact\\AlunosApi\\AlunosApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Raphael\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Raphael\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",

@@ -2062,11 +2062,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\REPOSITÓRIO\\ApiReact\\AlunosApi\\AlunosApi.csproj",
+      "projectUniqueName": "D:\\REPOSITÓRIO\\WebApiComReact\\AlunosApi\\AlunosApi.csproj",
       "projectName": "AlunosApi",
-      "projectPath": "D:\\REPOSITÓRIO\\ApiReact\\AlunosApi\\AlunosApi.csproj",
+      "projectPath": "D:\\REPOSITÓRIO\\WebApiComReact\\AlunosApi\\AlunosApi.csproj",
       "packagesPath": "C:\\Users\\Raphael\\.nuget\\packages\\",
-      "outputPath": "D:\\REPOSITÓRIO\\ApiReact\\AlunosApi\\obj\\",
+      "outputPath": "D:\\REPOSITÓRIO\\WebApiComReact\\AlunosApi\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "D:\\visual studio\\sdk\\NuGetPackages"
