@@ -120,3 +120,9 @@ D:\REPOSITÓRIO\WebApiComReact\AlunosApi\obj\Debug\net6.0\refint\AlunosApi.dll
 D:\REPOSITÓRIO\WebApiComReact\AlunosApi\obj\Debug\net6.0\AlunosApi.pdb
 D:\REPOSITÓRIO\WebApiComReact\AlunosApi\obj\Debug\net6.0\AlunosApi.genruntimeconfig.cache
 D:\REPOSITÓRIO\WebApiComReact\AlunosApi\obj\Debug\net6.0\ref\AlunosApi.dll
+D:\REPOSITÓRIO\WebApiComReact\AlunosApi\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+D:\REPOSITÓRIO\WebApiComReact\AlunosApi\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+D:\REPOSITÓRIO\WebApiComReact\AlunosApi\bin\Debug\net6.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+D:\REPOSITÓRIO\WebApiComReact\AlunosApi\bin\Debug\net6.0\Microsoft.Extensions.Identity.Core.dll
+D:\REPOSITÓRIO\WebApiComReact\AlunosApi\bin\Debug\net6.0\Microsoft.Extensions.Identity.Stores.dll
+D:\REPOSITÓRIO\WebApiComReact\AlunosApi\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
