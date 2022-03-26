@@ -14,7 +14,7 @@
     margin-right: 30px;
 }
 .login-container section.form img{
-    width: 45%;
+    width: 35%;
     margin-left: auto;
     margin-right: auto;
     display: block;
@@ -30,6 +30,6 @@
 }
 
 #img1{
-    width: 80%;
+    width: 60%;
     height: auto;
 }
