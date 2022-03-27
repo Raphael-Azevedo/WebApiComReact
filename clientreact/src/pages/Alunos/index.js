@@ -9,6 +9,8 @@ import iconDeletar from '../../assets/Delete.png';
 
 export default function Alunos() {
 
+    const [searchInput, setSearchInput] = useState('');
+    const [filtro, setFiltro] = useState([]);
     const [nome, setNome] = useState('');
     const [alunos, setAlunos] = useState([]);
 
@@ -31,23 +33,52 @@ export default function Alunos() {
         )
     })
 
-    async function logout(){
-        try{
+    async function logout() {
+        try {
 
             localStorage.clear();
-            localStorage.setItem('token','');
-            authorization.headers='';
+            localStorage.setItem('token', '');
+            authorization.headers = '';
             navigate('/')
 
-        }catch(err){
+        } catch (err) {
             alert('Não foi possível fazer o logou' + err);
         }
     }
 
-    async function editAluno(id){
-        try{
+    async function editAluno(id) {
+        try {
+            navigate(`novo/${id}`)
+        } catch (error) {
+            alert('Não foi possível editar o aluno')
+        }
+    }
 
-        }catch
+    const searchAlunos = (searchValue) => {
+        setSearchInput(searchValue);
+
+        if (searchInput !== '') {
+            const dadosFiltrados = alunos.filter((item) => {
+                return Object.values(item).join('').toLowerCase().includes(searchInput.toLowerCase())
+            });
+            setFiltro(dadosFiltrados);
+        }
+        else {
+            setFiltro(alunos);
+        }
+    }
+
+    async function deleteAluno(id, nome) {
+        try {
+            if (window.confirm('Deseja deletar o aluno ' + nome + ' ?'))
+            {
+                await api.delete(`api/alunos/${id}`, authorization);
+                setAlunos(alunos.filter(aluno => aluno.id !== id));
+            }
+        } catch (err) {
+            alert('Não foi possível excluir o aluno')
+
+        }
     }
 
     return (
@@ -56,27 +87,41 @@ export default function Alunos() {
                 <img src={logoCadastro} alt="Cadastro" id="cadastro" />
                 <span>Bem-Vindo, <strong>{email}</strong></span>
                 <Link className='button' to="novo/0">Novo Aluno</Link>
-                <input type="image" src={iconLogout} alt="Submit" width="75" onClick={logout}/>
+                <input type="image" src={iconLogout} alt="Submit" width="75" onClick={logout} />
             </header>
             <form>
-                <input type='text' placeholder="Nome" />
-                <button type='button' class='button'>
-                    Filtrar aluno por nome (parcial)
-                </button>
+                <input type='text' placeholder="Filtrar por nome..."
+                    onChange={(e) => searchAlunos(e.target.value)}
+                />
             </form>
             <h1>Relação de Alunos</h1>
-            <ul>
-                {alunos.map(aluno => (
-                    <li key={aluno.id}>
-                        <b>Nome: </b>{aluno.nome}<br /><br />
-                        <b>Email: </b>{aluno.email}<br /><br />
-                        <b>Idade: </b>{aluno.idade}<br /><br />
+            {searchInput.length > 1 ? (
+                <ul>
+                    {filtro.map(aluno => (
+                        <li key={aluno.id}>
+                            <b>Nome: </b>{aluno.nome}<br /><br />
+                            <b>Email: </b>{aluno.email}<br /><br />
+                            <b>Idade: </b>{aluno.idade}<br /><br />
 
-                        <input type="image" src={iconEditar} alt="Submit" width="45" />
-                        <input type="image" src={iconDeletar} alt="Submit" width="45" />
-                    </li>
-                ))}
-            </ul>
+                            <input type="image" src={iconEditar} alt="Submit" width="45" onClick={() => editAluno(aluno.id)} />
+                            <input type="image" src={iconDeletar} alt="Submit" width="45" onClick={() => deleteAluno(aluno.id, aluno.nome)} />
+                        </li>
+                    ))}
+                </ul>
+            ) : (
+                <ul>
+                    {alunos.map(aluno => (
+                        <li key={aluno.id}>
+                            <b>Nome: </b>{aluno.nome}<br /><br />
+                            <b>Email: </b>{aluno.email}<br /><br />
+                            <b>Idade: </b>{aluno.idade}<br /><br />
+
+                            <input type="image" src={iconEditar} alt="Submit" width="45" onClick={() => editAluno(aluno.id)} />
+                            <input type="image" src={iconDeletar} alt="Submit" width="45" onClick={() => deleteAluno(aluno.id, aluno.nome)} />
+                        </li>
+                    ))}
+                </ul>
+            )}
         </div>
     );
 }

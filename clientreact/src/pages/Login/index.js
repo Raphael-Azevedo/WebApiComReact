@@ -36,7 +36,7 @@ export default function Login() {
     return (
         <div className='login-container'>
             <section className='form'>
-
+            
                 <img src={logoImage} alt="Login" id="img1" />
                 <form onSubmit={login}>
                     <h1>Cadastro de Alunos</h1>

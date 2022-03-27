@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import './styles.css';
 import iconAdicionar from '../../assets/Adicionar.png';
@@ -10,12 +10,12 @@ export default function NovoAluno() {
 
     const [id,setId] = useState(null);
     const [nome,setNome] = useState('');
-    const [email,setEmail] = useState('null');
-    const [idade,setIdade] = useState(0);
+    const [email,setEmail] = useState('');
+    const [idade,setIdade] = useState('');
 
     const {alunoId} = useParams();
 
-    const navigate = useNavigate()
+    const navigate = useNavigate();
 
     const token = localStorage.getItem('token');
 
@@ -27,8 +27,9 @@ export default function NovoAluno() {
 
     useEffect(() => {
        if(alunoId === '0')
+       {
             return;
-
+       }
         else    
             loadAluno();
 
@@ -50,6 +51,32 @@ export default function NovoAluno() {
         }
     }
 
+    async function saveOrUpdate(event){
+        event.preventDefault();
+        const data={
+            nome,
+            email,
+            idade
+        }
+
+        try{
+
+                if(alunoId==='0')
+                {
+                    await api.post('api/alunos',data,authorization)
+                }
+                else
+                {
+                    data.id = id;
+                    await api.put(`api/alunos/${id}`,data,authorization)
+                }
+
+            }catch(error){
+                alert('Erro ao gravar aluno '  + error);
+            }
+        navigate('/alunos');
+    }
+
     return (
         <div className='novo-aluno-container'>
             <div className='content'>                
@@ -60,7 +87,7 @@ export default function NovoAluno() {
                 <img src={iconRetornar} alt="Adicionar" />
                 </Link>
                 </section>
-                <form>
+                <form onSubmit={saveOrUpdate}>
                     <input placeholder='Nome' 
                         value={nome}
                         onChange={e=> setNome(e.target.value)}
